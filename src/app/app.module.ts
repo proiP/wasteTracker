@@ -7,6 +7,18 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+// Import the AF2 Module
+import { AngularFireModule } from 'angularfire2';
+
+// AF2 Settings
+export const firebaseConfig = {
+  apiKey: "AIzaSyBXpdnaGTmJhhqEpwIHRYon9lJCZv1KemI",
+  authDomain: "waste-tracker-2844c.firebaseapp.com",
+  databaseURL: "https://waste-tracker-2844c.firebaseio.com",
+  storageBucket: "waste-tracker-2844c.appspot.com",
+  messagingSenderId: "679466001308"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -14,7 +26,8 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [

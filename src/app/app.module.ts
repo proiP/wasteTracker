@@ -5,7 +5,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+
+import { Client } from '../pages/client/client';
+import { Login } from '../pages/login/login';
+import { Auth } from '../providers/auth';
 
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
@@ -22,7 +25,8 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    Client,
+    Login
   ],
   imports: [
     BrowserModule,
@@ -32,12 +36,14 @@ export const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    Client,
+    Login
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Auth
   ]
 })
 export class AppModule {}
